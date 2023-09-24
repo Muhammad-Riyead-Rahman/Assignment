@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<form method="POST" class="post-form" action="/emp">
+    {% csrf_token %}
+
+    <div class="container">
+        <h3>Enter Details</h3>
+
+        <div class="form-group">
+            <label for="id_ename">Employee Name:</label>
+            {{ form.ename }}
+        </div>
+
+        <div class="form-group">
+            <label for="id_econtact">Employee Contact:</label>
+            {{ form.econtact }} {{ form.econtact.errors }}
+        </div>
+
+        <div class="form-group">
+            <button type="submit">Submit</button>
+        </div>
+    </div>
+</form>
+</body>
+</html>
